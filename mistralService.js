@@ -1,4 +1,4 @@
-const API_URL = "https://api.mistral.ai/v1/chat/completions";
+const API_URL = "/api/mistral";
 
 const mock = {
   risk_level: "High",
@@ -14,11 +14,6 @@ const mock = {
 };
 
 export async function runMistralAnalysis(location) {
-  const key = import.meta.env.VITE_MISTRAL_API_KEY;
-  if (!key) {
-    console.warn("VITE_MISTRAL_API_KEY missing; using realistic mock AI response.");
-    return mock;
-  }
 
   const prompt = `You are a landslide risk assessment expert for India. Analyze the following real-time data for ${location.name}:
 - Rainfall (24h): ${location.rainfall} mm
@@ -43,7 +38,6 @@ Provide JSON only:
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${key}`
       },
       body: JSON.stringify({
         model: "mistral-large-latest",
