@@ -1,0 +1,1 @@
+Static assets can be added here. The application uses live Carto tiles and remote demo imagery.

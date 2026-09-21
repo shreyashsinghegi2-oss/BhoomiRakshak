@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #070B14; color: #fff; font-family: Inter, sans-serif; }
+* { box-sizing: border-box; }
+.leaflet-container { background: #0b1220; font-family: Inter, sans-serif; }
+.glass { background: rgba(15, 23, 42, .72); backdrop-filter: blur(14px); border: 1px solid rgba(148,163,184,.14); }
+.grid-radar {
+  background-image: linear-gradient(rgba(0,240,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,240,255,.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.scanline { position: relative; overflow: hidden; }
+.scanline::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(0,240,255,.04), transparent);
+  transform: translateY(-100%); animation: scan 5s linear infinite;
+}
+@keyframes scan { to { transform: translateY(100%); } }
+.pulse-live { animation: pulseLive 1.6s ease-in-out infinite; }
+@keyframes pulseLive { 50% { box-shadow: 0 0 0 7px rgba(239,68,68,.04); opacity: .65; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}

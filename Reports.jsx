@@ -1,0 +1,3 @@
+import Navbar from "../components/Navbar";
+import CitizenReports from "../components/CitizenReports";
+export default function Reports(){return <div className="min-h-screen bg-command"><Navbar/><main className="mx-auto max-w-7xl space-y-5 p-5"><div><div className="font-mono text-[10px] uppercase tracking-[.25em] text-cyan">Field Intelligence</div><h1 className="font-display text-3xl font-bold">Citizen & Field Reports</h1><p className="mt-2 text-sm text-slate-400">Geo-tagged observations supporting verification and response.</p></div><CitizenReports/></main></div>}
